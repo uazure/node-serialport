@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# echo including env.mak
+# include /env.mak
+
+# echo adding cc to env
+# env CC="${CC}" CXX="${CXX}" AR=${AR} CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}"
+
+echo Install nan
+npm install nan node-pre-gyp node-pre-gyp-github
+
+
+export CC="${CC}"
+export CXX="${CXX}"
+export CFLAGS="${CFLAGS}"
+export CXXFLAGS="${CXXFLAGS}"
+export LDFLAGS="${LDFLAGS}"
+
+echo "env after exports"
+env
+
+echo gyp configure
+node_modules/.bin/node-pre-gyp --target_arch=arm configure
+echo adjust makefile
+
+echo "include /env32.mak" > build/Makefile.new
+cat build/Makefile >> build/Makefile.new
+mv build/Makefile build/Makefile.old
+mv build/Makefile.new build/Makefile
+
+
+echo gyp --target_arch=arm build
+node_modules/.bin/node-pre-gyp build
+
+#
+# node-pre-gyp configure
+#
+# node-pre-gyp build
+echo gyp package
+node_modules/.bin/node-pre-gyp --target_arch=arm package
+
+
+#
+NODE_PRE_GYP_GITHUB_TOKEN=5972895e1f93f6ee4ce566934e208096933eec8c node_modules/.bin/node-pre-gyp-github publish
