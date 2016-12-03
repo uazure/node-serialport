@@ -8,3 +8,5 @@ gyp-mac-tool
 .node_pre_gyprc
 /.idea
 .nyc_output
+SynoBuildConf/GitHubOAuthToken.txt
+
