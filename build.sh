@@ -1,2 +1,2 @@
 #!/bin/bash
-/toolkit/pkgscripts-ng/PkgCreate.py -B node-serialport
+/toolkit/pkgscripts-ng/PkgCreate.py -I node-serialport

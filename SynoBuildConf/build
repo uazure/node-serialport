@@ -10,6 +10,7 @@ export CXX="${CXX}"
 export CFLAGS="${CFLAGS}"
 export CXXFLAGS="${CXXFLAGS}"
 export LDFLAGS="${LDFLAGS}"
+export AR="${AR}"
 
 echo "env after exports"
 env
@@ -34,6 +35,5 @@ node_modules/.bin/node-pre-gyp --target_arch=arm package
 
 
 # publish release on github
-SynoBuildConf/publish.sh
 TOKEN=`cat SynoBuildConf/GitHubOAuthToken.txt`
 NODE_PRE_GYP_GITHUB_TOKEN="${TOKEN}" node_modules/.bin/node-pre-gyp-github publish
