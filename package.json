@@ -1,21 +1,22 @@
 {
   "name": "serialport",
   "version": "4.0.6",
-  "description": "Node.js package to access serial ports. Welcome your robotic javascript overlords. Better yet, program them!",
+  "description": "Fork of original node-serialport specially for building gyp package for Synology DS216j (arm)",
   "author": {
-    "name": "Chris Williams",
-    "email": "voodootikigod@gmail.com",
-    "url": "http://www.voodootikigod.com"
+    "name": "Sergii Popov",
+    "email": "uazure@gmail.com",
+    "url": "http://github.com/uazure"
   },
   "binary": {
     "module_name": "serialport",
     "module_path": "build/{configuration}/",
-    "host": "https://github.com/EmergingTechnologyAdvisors/node-serialport/releases/download/4.0.6"
+    "host": "https://github.com/uazure/node-serialport/releases/download/",
+    "remote_path": "{version}"
   },
   "main": "./lib/serialport",
   "repository": {
     "type": "git",
-    "url": "git://github.com/EmergingTechnologyAdvisors/node-serialport.git"
+    "url": "git://github.com/uazure/node-serialport.git"
   },
   "keywords": [
     "serialport",
